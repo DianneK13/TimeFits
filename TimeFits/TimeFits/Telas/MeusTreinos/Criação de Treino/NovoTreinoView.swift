@@ -108,7 +108,7 @@ struct NovoTreinoView: View {
                     .foregroundColor(.gray)
                     .padding(.horizontal, 8)
                 
-                ScrollView(showsIndicators: false) {
+                ScrollView {
                     VStack(spacing: 0) {
                         ForEach($exercicios) { $exercicio in
                             Button(action: {
