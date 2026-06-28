@@ -11,11 +11,15 @@ struct ContentView: View {
     var body: some View {
         TabView {
             Tab("Meus Treinos", systemImage: "heart.fill") {
-                MeusTreinosView()
+                NavigationStack {
+                    MeusTreinosView()
+                }
             }
             
             Tab("Exercícios", systemImage: "dumbbell.fill"){
-                ExerciciosView()
+                NavigationStack {
+                    ExerciciosView()
+                }
             }
         }
     }
