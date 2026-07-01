@@ -35,10 +35,15 @@ struct ExercicioView: View {
                 .safeAreaPadding(23)
             }
         }
+
         .scrollEdgeEffectStyle(.automatic, for: .bottom)
         .navigationTitle(nome)
         .toolbarVisibility(.hidden, for: .tabBar)
         .navigationBarTitleDisplayMode(.inline)
         
     }
+}
+
+#Preview {
+    ExercicioView(nome: "nome", imagem: "classicPushUP", tempoRep: 10, tempoRest: 10)
 }

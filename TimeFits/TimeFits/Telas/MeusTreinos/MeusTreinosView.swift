@@ -10,6 +10,7 @@ import SwiftUI
 struct MeusTreinosView: View {
     
     @State private var mostrarCriarTreino = false
+    @Environment(\.colorScheme) var colorScheme
     
     @State private var treinos = [
         TreinoItem(titulo: "Superiores", tempo: "Tempo total: 40min"),
@@ -21,11 +22,7 @@ struct MeusTreinosView: View {
         NavigationStack {
             ZStack(alignment: .topTrailing) {
                 
-                LinearGradient(
-                    gradient: Gradient(colors: [Color(red: 0.6, green: 0.9, blue: 0.7).opacity(0.6), .white]),
-                    startPoint: .top,
-                    endPoint: .center
-                )
+                LinearGradient(gradient: Gradient(colors: [.green, Color((colorScheme == .light ? .white : .black))]), startPoint: .top, endPoint: .center)
                 .ignoresSafeArea()
 
                 ScrollView {
@@ -33,16 +30,14 @@ struct MeusTreinosView: View {
                         Text("Meus Treinos")
                             .font(.system(.largeTitle, design: .rounded))
                             .fontWeight(.bold)
-                            .foregroundColor(.black)
                             .padding(.horizontal)
-                            .padding(.top, 50)
                         
                         ForEach(treinos) { treino in
                             VStack(alignment: .leading, spacing: 4) {
                                 Text(treino.titulo)
                                     .font(.title3)
+                                    .foregroundColor((colorScheme == .light ? .black : .black))
                                     .fontWeight(.bold)
-                                    .foregroundColor(.black)
                                 
                                 Text(treino.tempo)
                                     .font(.subheadline)
@@ -50,29 +45,26 @@ struct MeusTreinosView: View {
                             }
                             .padding()
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .background(Color(.systemGray6).opacity(0.7))
+                            .background(Color((colorScheme == .light ? .white : .white)))
+    
                             .cornerRadius(16)
                             .padding(.horizontal)
                         }
                     }
                 }
                 
-                
-                Button(action: {
+                .toolbar {
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button(action: {
+                            mostrarCriarTreino = true
+                        }) {
+                            Label("Adicionar", systemImage: "plus")
+                        }
+                    }
                     
-                    mostrarCriarTreino = true
-                }) {
-                    Image(systemName: "plus")
-                        .font(.title2.bold())
-                        .foregroundColor(.white)
-                        .frame(width: 50, height: 50)
-                        .background(Color.orange)
-                        .clipShape(Circle())
-                        .shadow(color: .black.opacity(0.15), radius: 4, x: 0, y: 4)
                 }
-                .padding(.trailing, 20)
-                .padding(.top, 10)
-            }
+                
+                }
             
             .sheet(isPresented: $mostrarCriarTreino) {
                 NovoTreinoView()
