@@ -46,16 +46,14 @@ struct TreinoView: View {
                             
                             Spacer()
                             
-                            Image(systemName: "figure.strengthtraining.traditional")
+                            Image(exercicio.imagem)
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 40, height: 40)
+                                .frame(width: 50, height: 50)
                                 .foregroundColor(.orange)
-                                .padding(10)
                                 .background(Color(.systemGray6))
-                                .clipShape(Circle())
                         }
-                        .padding()
+                        .padding(15)
                         .background(Color(.systemGray6).opacity(0.8))
                         .cornerRadius(16)
                         .padding(.horizontal)

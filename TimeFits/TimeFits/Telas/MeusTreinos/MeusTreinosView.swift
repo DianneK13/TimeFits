@@ -17,7 +17,7 @@ struct MeusTreinosView: View {
             tempo: "Tempo total: 40min",
             exercicios: [
                 Exercicio(nome: "Face Pull", series: 3, repeticoes: 12, imagem: "costas"),
-                Exercicio(nome: "Remada Baixa", series: 4, repeticoes: 12, imagem: "costas"),
+                Exercicio(nome: "Remada Baixa", series: 4, repeticoes: 12, imagem: "costas2"),
                 Exercicio(nome: "Rosca Martelo", series: 3, repeticoes: 12, imagem: "biceps")
             ]
         ),
@@ -25,16 +25,16 @@ struct MeusTreinosView: View {
             titulo: "ABS",
             tempo: "Tempo total: 30min",
             exercicios: [
-                Exercicio(nome: "Prancha", series: 3, repeticoes: 60, imagem: "abs"),
-                Exercicio(nome: "Abdominal Supra", series: 4, repeticoes: 15, imagem: "abs")
+                Exercicio(nome: "Prancha", series: 3, repeticoes: 60, imagem: "abdomen"),
+                Exercicio(nome: "Abdominal Supra", series: 4, repeticoes: 15, imagem: "abdomen")
             ]
         ),
         TreinoItem(
             titulo: "Inferiores",
             tempo: "Tempo total: 1h",
             exercicios: [
-                Exercicio(nome: "Agachamento Livre", series: 4, repeticoes: 10, imagem: "pernas"),
-                Exercicio(nome: "Leg Press", series: 4, repeticoes: 12, imagem: "pernas")
+                Exercicio(nome: "Agachamento Livre", series: 4, repeticoes: 10, imagem: "quadriceps"),
+                Exercicio(nome: "Leg Press", series: 4, repeticoes: 12, imagem: "quadriceps")
             ]
         )
     ]
