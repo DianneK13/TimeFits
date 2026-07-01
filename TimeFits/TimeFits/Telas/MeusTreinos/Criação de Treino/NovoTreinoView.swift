@@ -14,16 +14,8 @@ struct NovoTreinoView: View {
     @State private var nomeDoTreino = "ABS"
     
     @State private var imagemSelecionada: PhotosPickerItem? = nil
-    @State private var imagemDeFundo: Image? = nil
-    
-    @State private var exercicios = [
-        ExercicioItem(nome: "Abdominal Supra", selecionado: true),
-        ExercicioItem(nome: "Abdominal Infra", selecionado: true),
-        ExercicioItem(nome: "Abdominal Bicicleta", selecionado: true),
-        ExercicioItem(nome: "Prancha", selecionado: true),
-        ExercicioItem(nome: "Agachamento", selecionado: false),
-        ExercicioItem(nome: "Leg Press", selecionado: false)
-    ]
+    @State private var imagemDeFundo: Image? = nil    
+    @State private var dataModifiable: [ExerciciosData] = data
     
     var body: some View {
         VStack(spacing: 24) {
@@ -110,9 +102,10 @@ struct NovoTreinoView: View {
                 
                 ScrollView {
                     VStack(spacing: 0) {
-                        ForEach($exercicios) { $exercicio in
+                        ForEach(dataModifiable.enumerated(), id: \.offset) { index, exercicio in
+
                             Button(action: {
-                                exercicio.selecionado.toggle()
+                                dataModifiable[index].selecionado.toggle()
                             }) {
                                 HStack(spacing: 16) {
                                     Image(systemName: exercicio.selecionado ? "checkmark.circle.fill" : "circle")
@@ -129,7 +122,7 @@ struct NovoTreinoView: View {
                                 .contentShape(Rectangle())
                             }
                             
-                            if exercicio.id != exercicios.last?.id {
+                            if dataModifiable[index] != dataModifiable.last {
                                 Divider().padding(.leading, 38)
                             }
                         }
