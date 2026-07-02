@@ -24,11 +24,11 @@ struct NovoTreinoView: View {
                 Button(action: { dismiss() }) {
                     Image(systemName: "xmark")
                         .font(.title3.bold())
-                        .foregroundColor(.black.opacity(0.6))
+                        .foregroundStyle(.white)
                         .frame(width: 40, height: 40)
-                        .background(Color(.systemGray5))
                         .clipShape(Circle())
                 }
+                .glassEffect(.regular.tint(.secondary).interactive())
                 
                 Spacer()
                 Text("Novo Treino").font(.headline).fontWeight(.bold)
@@ -39,9 +39,9 @@ struct NovoTreinoView: View {
                         .font(.title3.bold())
                         .foregroundColor(.white)
                         .frame(width: 40, height: 40)
-                        .background(Color.green)
                         .clipShape(Circle())
                 }
+                .glassEffect(.regular.tint(.green).interactive())
             }
             .padding(.horizontal)
             .padding(.top, 12)
@@ -54,7 +54,7 @@ struct NovoTreinoView: View {
                 
                 ZStack {
                     Circle()
-                        .fill(Color.green.opacity(0.8))
+                        .fill(Color.green)
                         .frame(width: 70, height: 70)
                     
                     
@@ -87,7 +87,7 @@ struct NovoTreinoView: View {
                 TextField("Nome do Treino", text: $nomeDoTreino)
                     .font(.title2)
                     .fontWeight(.medium)
-                    .foregroundColor(.black.opacity(0.6))
+                    .foregroundColor(.primary)
                     .multilineTextAlignment(.center)
                 
                 Divider().padding(.horizontal, 40)
@@ -110,10 +110,10 @@ struct NovoTreinoView: View {
                                 HStack(spacing: 16) {
                                     Image(systemName: exercicio.selecionado ? "checkmark.circle.fill" : "circle")
                                         .font(.title3)
-                                        .foregroundColor(exercicio.selecionado ? .green : .gray.opacity(0.4))
+                                        .foregroundColor(exercicio.selecionado ? .green : .gray)
                                     
                                     Text(exercicio.nome)
-                                        .foregroundColor(.black)
+                                        .foregroundColor(.primary)
                                         .font(.body)
                                     
                                     Spacer()
@@ -130,13 +130,13 @@ struct NovoTreinoView: View {
                 }
             }
             .padding(16)
-            .background(Color(.systemGray6).opacity(0.5))
+            .background(Color(.systemBackground))
             .cornerRadius(24)
             .padding(.horizontal)
             
             Spacer()
         }
-        .background(Color(.systemBackground))
+        .background(Color(.systemGray6))
     }
 }
 
