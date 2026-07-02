@@ -44,7 +44,7 @@ struct MeusTreinosView: View {
         NavigationStack {
             ZStack(alignment: .topTrailing) {
                 
-                LinearGradient(gradient: Gradient(colors: [.green, Color((colorScheme == .light ? .white : .black))]), startPoint: .top, endPoint: .center)
+                LinearGradient(gradient: Gradient(colors: [.green, Color((colorScheme == .light ? .systemGray6 : .black))]), startPoint: .top, endPoint: .center)
                 .ignoresSafeArea()
 
                 ScrollView {

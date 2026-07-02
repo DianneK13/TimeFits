@@ -130,13 +130,13 @@ struct NovoTreinoView: View {
                 }
             }
             .padding(16)
-            .background(Color(.systemGray6))
+            .background(Color(.systemBackground))
             .cornerRadius(24)
             .padding(.horizontal)
             
             Spacer()
         }
-        .background(Color(.systemBackground))
+        .background(Color(.systemGray6))
     }
 }
 

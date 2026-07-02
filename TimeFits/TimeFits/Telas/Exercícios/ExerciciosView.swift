@@ -40,7 +40,7 @@ struct ListaDeExercicios: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                LinearGradient(gradient: Gradient(colors: [.green, Color((colorScheme == .light ? .white : .black))]), startPoint: .top, endPoint: .center)
+                LinearGradient(gradient: Gradient(colors: [.green, Color((colorScheme == .light ? .systemGray6 : .black))]), startPoint: .top, endPoint: .center)
                     .ignoresSafeArea()
                 ScrollView {
                     LazyVGrid(columns: columns) {
@@ -65,7 +65,7 @@ struct ListaDeExercicios: View {
                                         Spacer()
                                         Text("\(data[index].nome)")
                                             .frame(maxWidth: .infinity, alignment: .leading)
-                                            .foregroundColor(.primary)
+                                            .foregroundColor(Color((colorScheme == .light ? .black : .black)))
                                             .font(.title3).bold()
                                             .padding(20)
                                         
@@ -73,7 +73,7 @@ struct ListaDeExercicios: View {
                                 }
                                 .frame(width: 357, height: 110)
                                 .background {
-                                    Color(.systemGray6)
+                                    Color(.white)
                                 }
                                 .clipShape(.rect(cornerRadius: 10))
                                 .padding(5)
